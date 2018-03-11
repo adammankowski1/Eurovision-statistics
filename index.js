@@ -21,7 +21,7 @@ async function retrieveResults() {
   await request(url, function (error, response, body) {
     body = JSON.parse(body);
     body.items.forEach((item, index) => {
-      results.push({country: countries()[index].name, views: item.statistics.viewCount, likes: item.statistics.likeCount, dislikes: item.statistics.likeCount, comments: item.statistics.commentCount});
+      results.push({country: countries()[index].name, views: item.statistics.viewCount, likes: item.statistics.likeCount, dislikes: item.statistics.dislikeCount, comments: item.statistics.commentCount});
     });
   });
   return results;
