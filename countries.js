@@ -19,7 +19,7 @@ module.exports = function countries() {
     {name: 'Malta', ew: 'https://eurovisionworld.com/eurovision/2018/malta', yt: 'E_0ugf0eP1Q'},
     {name: 'Slovenia', ew: 'https://eurovisionworld.com/eurovision/2018/slovenia', yt: 'Y-Q4Fh54wUk'},
     {name: 'Switzerland', ew: 'https://eurovisionworld.com/eurovision/2018/switzerland', yt: 'jXOlPGnkZFY'},
-    {name: 'Czech Republic', ew: 'https://eurovisionworld.com/eurovision/2018/czech-republic', yt: 'DLGfxc3eTNw'},
+    {name: 'Czech Republic', ew: 'https://eurovisionworld.com/eurovision/2018/czech-republic', yt: 'k6_oxE2MxZE'},
     {name: 'Belarus', ew: 'https://eurovisionworld.com/eurovision/2018/belarus', yt: 'YU2My4BPX34'},
     {name: 'Azebaijan', ew: 'https://eurovisionworld.com/eurovision/2018/azerbaijan', yt: 'EVEhrwDzdCE'},
     {name: 'Greece', ew: 'https://eurovisionworld.com/eurovision/2018/greece', yt: 'z6hvV9-Gi_w'},
