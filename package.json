@@ -16,6 +16,7 @@
     "express": "^4.15.2"
   },
   "dependencies": {
+    "request": "^2.83.0",
     "request-promise-native": "^1.0.5",
     "tape": "^4.7.0"
   }
