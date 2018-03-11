@@ -6,18 +6,22 @@ var request = require('request-promise-native');
 async function retrieveResults() {
   let results = [];
 
-  let url = 'https://www.googleapis.com/youtube/v3/videos?part=statistics&id=yfUJ2eDm6ng';
+  let url = 'https://www.googleapis.com/youtube/v3/videos?part=statistics&id=';
 
-  countries().forEach((country, index) => {
-    if(country.yt == '') {
-      return;
-    }
+  const filteredCountries = countries().filter((country) => {
+    return country.yt !== '';
+  });
+
+  filteredCountries.forEach((country, index) => {
     url += country.yt;
-    if(index != 0 && index != countries().lenght - 1)
+    console.log(index);
+    if(index != filteredCountries.length - 1) {
       url += ',';
+    }
   });
 
   url += '&key=AIzaSyD3mW7_XpOdbeMt0NLRCalpqtGsgKKTVuQ';
+  console.log(url);
   await request(url, function (error, response, body) {
     body = JSON.parse(body);
     body.items.forEach((item, index) => {
