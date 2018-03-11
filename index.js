@@ -20,7 +20,6 @@ async function retrieveResults() {
   });
 
   url += '&key=AIzaSyD3mW7_XpOdbeMt0NLRCalpqtGsgKKTVuQ';
-  console.log(url);
   await request(url, function (error, response, body) {
     body = JSON.parse(body);
     body.items.forEach((item, index) => {
@@ -39,7 +38,6 @@ app.set('views', __dirname + '/views');
 app.set('view engine', 'ejs');
 
 app.get('/api', async function(request, response) {
-  console.log('api');
   const results = await retrieveResults();
   response.send(results);
 });
