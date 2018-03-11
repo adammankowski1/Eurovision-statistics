@@ -9,13 +9,19 @@
 <% include ../partials/nav.ejs %>
 
 <div class="container">
-<h2>Database Results</h2>
+<h2>Eurovision Song Content - Statistics</h2>
 
-<ul>
-    <% results.forEach(function(r) { %>
-        <li><%= r.id %> - <%= r.name %></li>
-    <% }); %>
-</ul>
+<table data-toggle="table" data-url="/api">
+    <thead>
+        <tr>
+            <th data-field="country">Country</th>
+            <th data-field="views" data-sortable="true">Views</th>
+            <th data-field="likes" data-sortable="true">Likes</th>
+            <th data-field="dislikes" data-sortable="true">Dislikes</th>
+            <th data-field="comments" data-sortable="true">Comments</th>
+        </tr>
+    </thead>
+</table>
 
 </div>
 

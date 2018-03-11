@@ -14,7 +14,6 @@ async function retrieveResults() {
 
   filteredCountries.forEach((country, index) => {
     url += country.yt;
-    console.log(index);
     if(index != filteredCountries.length - 1) {
       url += ',';
     }
@@ -39,9 +38,14 @@ app.use(express.static(__dirname + '/public'));
 app.set('views', __dirname + '/views');
 app.set('view engine', 'ejs');
 
-app.get('/', async function(request, response) {
+app.get('/api', async function(request, response) {
+  console.log('api');
   const results = await retrieveResults();
   response.send(results);
+});
+
+app.get('/', function(request, response) {
+  response.render('pages/db');
 });
 
 app.listen(app.get('port'), function() {
