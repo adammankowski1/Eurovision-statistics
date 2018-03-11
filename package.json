@@ -2,17 +2,24 @@
   "name": "eurovision-odds-checker",
   "version": "1.0.0",
   "description": "",
+  "engines": {
+    "node": "8.9.1"
+  },
   "main": "index.js",
   "scripts": {
     "start": "babel-node index.js"
   },
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "devDependencies": {
     "babel-cli": "^6.26.0",
-    "babel-preset-es2017": "^6.24.1"
+    "babel-preset-es2017": "^6.24.1",
+    "ejs": "^2.5.6",
+    "express": "^4.15.2"
   },
   "dependencies": {
-    "request": "^2.83.0"
+    "request": "^2.83.0",
+    "request-promise-native": "^1.0.5",
+    "tape": "^4.7.0"
   }
 }
