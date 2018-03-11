@@ -7,7 +7,7 @@ module.exports = function countries() {
     {name: 'Spain', ew: 'https://eurovisionworld.com/eurovision/2018/spain', yt: 'FDga57mNny4'},
     {name: 'Netherlands', ew: 'https://eurovisionworld.com/eurovision/2018/netherlands', yt: 'kLL9IlQ_7OA'},
     {name: 'Germany', ew: 'https://eurovisionworld.com/eurovision/2018/germany', yt: 'o_xTETHwIQg'},
-    {name: 'Italy', ew: 'https://eurovisionworld.com/eurovision/2018/italy', yt: 'gs2n5JY0QzQ'},
+    {name: 'Italy', ew: 'https://eurovisionworld.com/eurovision/2018/italy', yt: 'zguJGdoPPnw'},
     {name: 'France', ew: 'https://eurovisionworld.com/eurovision/2018/france', yt: 'L7dFXOyvWVE'},
     {name: 'Ukraine', ew: 'https://eurovisionworld.com/eurovision/2018/ukraine', yt: 'E1yoAtjhkzQ'},
     {name: 'United Kingdom', ew: 'https://eurovisionworld.com/eurovision/2018/united-kingdom', yt: 'K--kIdOpbJM'},
@@ -27,7 +27,7 @@ module.exports = function countries() {
     //Not released yet
     {name: 'San Marino', ew: 'https://eurovisionworld.com/eurovision/2018/san-marino', yt: 'ZNflc1Zcw2A'},
     {name: 'Iceland', ew: 'https://eurovisionworld.com/eurovision/2018/iceland', yt: 'nloweviD_90'},
-    {name: 'Montenegro', ew: 'https://eurovisionworld.com/eurovision/2018/montenegro', yt: ''},
+    {name: 'Montenegro', ew: 'https://eurovisionworld.com/eurovision/2018/montenegro', yt: 'qxJoxbo9lCQ'},
     {name: 'Albania', ew: 'https://eurovisionworld.com/eurovision/2018/albania', yt: ''},
     {name: 'Georgia', ew: 'https://eurovisionworld.com/eurovision/2018/georgia', yt: ''},
     {name: 'Austria', ew: 'https://eurovisionworld.com/eurovision/2018/austria', yt: 'I8MyztgOTv8'},
@@ -41,13 +41,13 @@ module.exports = function countries() {
     //Jessica Mauboy's song for Eurovision 2018 will be released in March 2018
     {name: 'Australia', ew: '', yt: 'J4XZxbrvepw'},
     //Yulia Samoylova's song for Eurovision 2018 will be released in March 2018
-    {name: 'Russia', ew: '', yt: ''},
+    {name: 'Russia', ew: '', yt: 'bgBwbr_fUxA'},
     {name: 'Belgium', ew: '', yt: '6DGf9TMehi0'},
-    {name: 'Israel', ew: '', yt: ''},
+    {name: 'Israel', ew: '', yt: 'CziHrYYSyPc'},
     {name: 'Croatia', ew: '', yt: '19Yo86KCd0w'},
     {name: 'Norway', ew: '', yt: 'oicLsTZRp28'},
     {name: 'Portugal', ew: '', yt: 'kaVp4El9p3s'},
     {name: 'Lithuania', ew: '', yt: ''},
-    {name: 'FYR Macedonia', ew: '', yt: ''},
+    {name: 'FYR Macedonia', ew: '', yt: 'hJ8vStigz7k'},
   ];
 };

@@ -19,7 +19,7 @@ async function retrieveResults() {
     }
   });
 
-  url += '&key=AIzaSyD3mW7_XpOdbeMt0NLRCalpqtGsgKKTVuQ';
+  url += `&key=${process.env.youtube_api_key}`;
   await request(url, function (error, response, body) {
     body = JSON.parse(body);
     body.items.forEach((item, index) => {
