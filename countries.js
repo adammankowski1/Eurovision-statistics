@@ -4,7 +4,7 @@ module.exports = function countries() {
     {name: 'Poland', ew: 'https://eurovisionworld.com/eurovision/2018/poland', yt: 'yfUJ2eDm6ng'},
     {name: 'Estonia', ew: 'https://eurovisionworld.com/eurovision/2018/estonia', yt: '76KOUIfDry8'},
     {name: 'Finland', ew: 'https://eurovisionworld.com/eurovision/2018/finland', yt: 'y4xlvh6qW6M'},
-    {name: 'Spain', ew: 'https://eurovisionworld.com/eurovision/2018/spain', yt: 'FDga57mNny4'},
+    {name: 'Spain', ew: 'https://eurovisionworld.com/eurovision/2018/spain', yt: 'nO4mDiJRH6Q'},
     {name: 'Netherlands', ew: 'https://eurovisionworld.com/eurovision/2018/netherlands', yt: 'kLL9IlQ_7OA'},
     {name: 'Germany', ew: 'https://eurovisionworld.com/eurovision/2018/germany', yt: 'o_xTETHwIQg'},
     {name: 'Italy', ew: 'https://eurovisionworld.com/eurovision/2018/italy', yt: 'zguJGdoPPnw'},
@@ -14,7 +14,7 @@ module.exports = function countries() {
     {name: 'Latvia', ew: 'https://eurovisionworld.com/eurovision/2018/latvia', yt: 'uBlZsGxeXk4'},
     {name: 'Romania', ew: 'https://eurovisionworld.com/eurovision/2018/romania', yt: 'lZp6QwWDQ4c'},
     {name: 'Hungary', ew: 'https://eurovisionworld.com/eurovision/2018/hungary', yt: '6unRU5ZHbqY'},
-    {name: 'Moldova', ew: 'https://eurovisionworld.com/eurovision/2018/moldova', yt: 'Kg3ecHrFM_4'},
+    {name: 'Moldova', ew: 'https://eurovisionworld.com/eurovision/2018/moldova', yt: 'pKLKeVC-9Y4'},
     {name: 'Serbia', ew: 'https://eurovisionworld.com/eurovision/2018/serbia', yt: 'WkOFnIjGrkw'},
     {name: 'Malta', ew: 'https://eurovisionworld.com/eurovision/2018/malta', yt: 'E_0ugf0eP1Q'},
     {name: 'Slovenia', ew: 'https://eurovisionworld.com/eurovision/2018/slovenia', yt: 'Y-Q4Fh54wUk'},
@@ -32,22 +32,18 @@ module.exports = function countries() {
     {name: 'Georgia', ew: 'https://eurovisionworld.com/eurovision/2018/georgia', yt: ''},
     {name: 'Austria', ew: 'https://eurovisionworld.com/eurovision/2018/austria', yt: 'I8MyztgOTv8'},
     {name: 'Armenia', ew: 'https://eurovisionworld.com/eurovision/2018/armenia', yt: ''},
-    {name: 'Cyprus', ew: 'https://eurovisionworld.com/eurovision/2018/cyprus', yt: ''},
+    {name: 'Cyprus', ew: 'https://eurovisionworld.com/eurovision/2018/cyprus', yt: 'eDSgs6syrgg'},
     {name: 'Ireland', ew: 'https://eurovisionworld.com/eurovision/2018/ireland', yt: 'XAEjQXzW4Uc'},
-    //The artist & song for Bulgaria will be announced on 12 March 2018
-    {name: 'Bulgaria', ew: '', yt: ''},
-    //The artist & song for Sweden will be decided on 10 March 2018
+    {name: 'Bulgaria', ew: '', yt: 'Uvy_R3fTHQ4'},
     {name: 'Sweden', ew: '', yt: 'U2UmYBkszOA'},
-    //Jessica Mauboy's song for Eurovision 2018 will be released in March 2018
     {name: 'Australia', ew: '', yt: 'J4XZxbrvepw'},
-    //Yulia Samoylova's song for Eurovision 2018 will be released in March 2018
     {name: 'Russia', ew: '', yt: 'bgBwbr_fUxA'},
     {name: 'Belgium', ew: '', yt: '6DGf9TMehi0'},
     {name: 'Israel', ew: '', yt: 'CziHrYYSyPc'},
     {name: 'Croatia', ew: '', yt: '19Yo86KCd0w'},
     {name: 'Norway', ew: '', yt: 'oicLsTZRp28'},
     {name: 'Portugal', ew: '', yt: 'kaVp4El9p3s'},
-    {name: 'Lithuania', ew: '', yt: ''},
-    {name: 'FYR Macedonia', ew: '', yt: 'hJ8vStigz7k'},
+    {name: 'Lithuania', ew: '', yt: 'CvG3sdGdGUA'},
+    {name: 'F.Y.R. Macedonia', ew: '', yt: 'hJ8vStigz7k'},
   ];
 };
