@@ -23,7 +23,7 @@ async function retrieveResults() {
   await request(url, function (error, response, body) {
     body = JSON.parse(body);
     body.items.forEach((item, index) => {
-      results.push({country: filteredCountries[index].name, views: item.statistics.viewCount, likes: item.statistics.likeCount, dislikes: item.statistics.dislikeCount, likesRatio: (item.statistics.likeCount / item.statistics.dislikeCount).toFixed(2), comments: item.statistics.commentCount});
+      results.push({country: filteredCountries[index].name, views: item.statistics.viewCount, likes: item.statistics.likeCount, dislikes: item.statistics.dislikeCount, likesRatio: (item.statistics.likeCount / item.statistics.dislikeCount).toFixed(2), comments: item.statistics.commentCount, id: item.id});
     });
   });
   return results;

@@ -3,6 +3,11 @@
 <head>
   <% include ../partials/header.ejs %>
 </head>
+<script>
+function nameFormatter(value, row, index, field) {
+  return `<a href="https://www.youtube.com/watch?v=${row.id}">${value}</>`;
+}
+</script>
 
 <body>
 
@@ -12,16 +17,16 @@
 <h2>Eurovision Song Content - Statistics</h2>
 
 <table data-toggle="table" data-url="/api">
-    <thead>
-        <tr>
-            <th data-field="country">Country</th>
-            <th data-field="views" data-sortable="true">Views</th>
-            <th data-field="likes" data-sortable="true">Likes</th>
-            <th data-field="dislikes" data-sortable="true">Dislikes</th>
-            <th data-field="likesRatio" data-sortable="true">Likes to dislikes ratio</th>
-            <th data-field="comments" data-sortable="true">Comments</th>
-        </tr>
-    </thead>
+  <thead>
+    <tr>
+      <th data-field="country" data-formatter="nameFormatter">Country</th>
+      <th data-field="views" data-sortable="true">Views</th>
+      <th data-field="likes" data-sortable="true">Likes</th>
+      <th data-field="dislikes" data-sortable="true">Dislikes</th>
+      <th data-field="likesRatio" data-sortable="true">Likes to dislikes ratio</th>
+      <th data-field="comments" data-sortable="true">Comments</th>
+    </tr>
+  </thead>
 </table>
 
 </div>
