@@ -77,7 +77,7 @@ exports.retrieveDailyStats = async function(callback) {
       });
       let finalResults = [];
       for (let _result in results) {
-        finalResults.push({country: _result, likes: results[_result].likesMax - results[_result].likesMin, dislikes: results[_result].dislikesMax - results[_result].dislikesMin, comments: results[_result].commentsMax - results[_result].commentsMin});
+        finalResults.push({country: _result, views: results[_result].viewsMax - results[_result].viewsMin , likes: results[_result].likesMax - results[_result].likesMin, dislikes: results[_result].dislikesMax - results[_result].dislikesMin, comments: results[_result].commentsMax - results[_result].commentsMin});
       }
       callback(finalResults);
       db.close();

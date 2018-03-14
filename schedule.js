@@ -14,15 +14,3 @@ MongoClient.connect(url, async (err,db) => {
     db.close();
   })
 });
-
-
-// MongoClient.connect(url, function(err, db) {
-//   if (err) throw err;
-//   var dbo = db.db(databaseName);
-//   var myobj = { name: "Company Inc", address: "Highway 37" };
-//   dbo.collection("eurovision_hourly_stats").insertOne(myobj, function(err, res) {
-//     if (err) throw err;
-//     console.log("1 document inserted");
-//     db.close();
-//   });
-// });
