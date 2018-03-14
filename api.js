@@ -1,5 +1,9 @@
-var countries = require('./countries.js');
 var request = require('request-promise-native');
+var MongoClient = require('mongodb').MongoClient;
+var api = require('./api.js');
+var countries = require('./countries.js');
+var url = "mongodb://eurovision_base:siemaczesc123@ds213199.mlab.com:13199/heroku_kgnnt30f";
+var databaseName = "heroku_kgnnt30f";
 
 exports.retrieveResults = async function() {
   let results = [];
@@ -20,13 +24,63 @@ exports.retrieveResults = async function() {
   url += `&key=${process.env.youtube_api_key}`;
   await request(url, function (error, response, body) {
     body = JSON.parse(body);
-    var currentTime = new Date();
+    let currentTime = new Date();
     currentTime.setMinutes(0);
     currentTime.setSeconds(0);
     currentTime.setMilliseconds(0);
     body.items.forEach((item, index) => {
-      results.push({country: filteredCountries[index].name, views: item.statistics.viewCount, likes: item.statistics.likeCount, dislikes: item.statistics.dislikeCount, likesRatio: (item.statistics.likeCount / item.statistics.dislikeCount).toFixed(2), comments: item.statistics.commentCount, id: item.id, time: currentTime.toISOString()});
+      results.push({country: filteredCountries[index].name, views: parseInt(item.statistics.viewCount), likes: parseInt(item.statistics.likeCount), dislikes: parseInt(item.statistics.dislikeCount), comments: parseInt(item.statistics.commentCount), id: item.id, time: currentTime.toISOString()});
     });
   });
   return results;
+}
+
+exports.retrieveDailyStats = async function(callback) {
+  MongoClient.connect(url, async (err,db) => {
+    if(err) throw err;
+    const dbo = db.db(databaseName);
+    let minTime = new Date();
+    minTime.setHours(1);
+    minTime.setMinutes(0);
+    minTime.setSeconds(0);
+    minTime.setMilliseconds(0);
+    let maxTime = new Date();
+    maxTime.setHours(25);
+    maxTime.setMinutes(0);
+    maxTime.setSeconds(0);
+    maxTime.setMilliseconds(0);
+    dbo.collection('eurovision_hourly_stats').find({"time" : { $gte: minTime.toISOString(), $lte: maxTime.toISOString() }}).toArray(function(err, result) {
+      if (err) throw err;
+      let results = {};
+      result.forEach((item) => {
+        if(!results[item.country])
+          results[item.country] = { viewsMin: item.views, viewsMax: item.views, likesMin: item.likes, likesMax: item.likes, dislikesMin: item.dislikes, dislikesMax: item.dislikes, commentsMin: item.comments, commentsMax: item.comments };
+        if(results[item.country].viewsMin > item.views)
+          results[item.country].viewsMin = item.views;
+        if(results[item.country].viewsMax < item.views)
+          results[item.country].viewsMax = item.views;
+
+        if(results[item.country].likesMin > item.likes)
+          results[item.country].likesMin = item.likes;
+        if(results[item.country].likesMax < item.likes)
+          results[item.country].likesMax = item.likes;
+
+        if(results[item.country].dislikesMin > item.dislikes)
+          results[item.country].dislikesMin = item.dislikes;
+        if(results[item.country].dislikesMax < item.dislikes)
+          results[item.country].dislikesMax = item.dislikes;
+
+        if(results[item.country].commentsMin > item.comments)
+          results[item.country].commentsMin = item.comments;
+        if(results[item.country].commentsMax < item.comments)
+          results[item.country].commentsMax = item.comments;
+      });
+      let finalResults = [];
+      for (let _result in results) {
+        finalResults.push({country: _result, likes: results[_result].likesMax - results[_result].likesMin, dislikes: results[_result].dislikesMax - results[_result].dislikesMin, comments: results[_result].commentsMax - results[_result].commentsMin});
+      }
+      callback(finalResults);
+      db.close();
+    });
+  });
 }

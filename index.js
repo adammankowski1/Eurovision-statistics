@@ -15,6 +15,12 @@ app.get('/api', async function(request, response) {
   response.send(results);
 });
 
+app.get('/api/daily', async function(request, response) {
+  const results = await api.retrieveDailyStats((results) => {
+    response.send(results);
+  });
+});
+
 app.get('/', function(request, response) {
   response.render('pages/db');
 });
