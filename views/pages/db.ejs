@@ -3,15 +3,6 @@
 <head>
   <% include ../partials/header.ejs %>
 </head>
-<script>
-function nameFormatter(value, row, index, field) {
-  return `<a href="https://www.youtube.com/watch?v=${row.id}">${value}</>`;
-}
-function likesRatioFormatter(value, row, index, field) {
-  return (row.likes / row.dislikes).toFixed(2);
-}
-</script>
-
 <body>
 
 <% include ../partials/nav.ejs %>
@@ -19,20 +10,60 @@ function likesRatioFormatter(value, row, index, field) {
 <div class="container">
 <h2>Eurovision Song Content - Statistics</h2>
 
-<table data-toggle="table" data-url="/api">
-  <thead>
-    <tr>
-      <th data-field="country" data-formatter="nameFormatter">Country</th>
-      <th data-field="views" data-sortable="true">Views</th>
-      <th data-field="likes" data-sortable="true">Likes</th>
-      <th data-field="dislikes" data-sortable="true">Dislikes</th>
-      <th data-formatter="likesRatioFormatter" data-sortable="true">Likes to dislikes ratio</th>
-      <th data-field="comments" data-sortable="true">Comments</th>
-    </tr>
-  </thead>
-</table>
+<table id="table"></table>
 
 </div>
 
 </body>
+<script>
+function countryFormatter(value, row, index, field) {
+  return `<a href="https://www.youtube.com/watch?v=${row.id}">${value}</>`;
+}
+$('#table').bootstrapTable({
+  sortName: 'views',
+  sortOrder: 'desc',
+  columns: [{
+    field: 'country',
+    title: 'Country',
+    formatter: countryFormatter
+  }, {
+    field: 'views',
+    title: 'Views',
+    sortable: true
+  }, {
+    field: 'likes',
+    title: 'Likes',
+    order: 'desc',
+    sortable: true
+  }, {
+    field: 'dislikes',
+    title: 'Dislikes',
+    order: 'desc',
+    sortable: true
+  }, {
+    field: 'likesToDislikesRatio',
+    title: 'Likes to dislikes ratio',
+    order: 'desc',
+    sortable: true
+  }, {
+    field: 'comments',
+    title: 'Comments',
+    order: 'desc',
+    sortable: true
+  }]
+});
+
+fetch('/api')
+  .then(function(response) {
+    return response.json();
+  })
+  .then(function(response) {
+    let data = response.map((item) => {
+      item.likesToDislikesRatio = (item.likes / item.dislikes).toFixed(2);
+      return item;
+    });
+    $('#table').bootstrapTable('load', data);
+  });
+
+</script>
 </html>
