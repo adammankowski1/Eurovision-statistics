@@ -2,6 +2,7 @@ var request = require('request-promise-native');
 var MongoClient = require('mongodb').MongoClient;
 var api = require('./api.js');
 var countries = require('./countries.js');
+var utils = require('./utils.js');
 var url = "mongodb://eurovision_base:siemaczesc123@ds213199.mlab.com:13199/heroku_kgnnt30f";
 var databaseName = "heroku_kgnnt30f";
 
@@ -25,9 +26,7 @@ exports.retrieveResults = async function() {
   await request(url, function (error, response, body) {
     body = JSON.parse(body);
     let currentTime = new Date();
-    currentTime.setMinutes(0);
-    currentTime.setSeconds(0);
-    currentTime.setMilliseconds(0);
+    currentTime.setUTCHours(currentTime.getUTCHours(), 0, 0, 0);
     body.items.forEach((item, index) => {
       results.push({country: filteredCountries[index].name, views: parseInt(item.statistics.viewCount), likes: parseInt(item.statistics.likeCount), dislikes: parseInt(item.statistics.dislikeCount), comments: parseInt(item.statistics.commentCount), id: item.id, time: currentTime.toISOString()});
     });
@@ -39,17 +38,7 @@ exports.retrieveDailyStats = async function(callback) {
   MongoClient.connect(url, async (err,db) => {
     if(err) throw err;
     const dbo = db.db(databaseName);
-    let minTime = new Date();
-    minTime.setHours(1);
-    minTime.setMinutes(0);
-    minTime.setSeconds(0);
-    minTime.setMilliseconds(0);
-    let maxTime = new Date();
-    maxTime.setHours(25);
-    maxTime.setMinutes(0);
-    maxTime.setSeconds(0);
-    maxTime.setMilliseconds(0);
-    dbo.collection('eurovision_hourly_stats').find({"time" : { $gte: minTime.toISOString(), $lte: maxTime.toISOString() }}).toArray(function(err, result) {
+    dbo.collection('eurovision_hourly_stats').find({"time" : { $gte: utils.retrieveDate(utils.MIN_DAILY_DATE), $lte: utils.retrieveDate(utils.MAX_DAILY_DATE) }}).toArray(function(err, result) {
       if (err) throw err;
       let results = {};
       result.forEach((item) => {
