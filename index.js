@@ -22,7 +22,7 @@ app.get('/api/daily', async function(request, response) {
 });
 
 app.get('/', function(request, response) {
-  response.render('pages/db');
+  response.render('pages/index');
 });
 
 app.listen(app.get('port'), function() {
