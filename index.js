@@ -21,8 +21,13 @@ app.get('/api/daily', async function(request, response) {
   });
 });
 
+
 app.get('/', function(request, response) {
   response.render('pages/index');
+});
+
+app.get('/daily', function(request, response) {
+  response.render('pages/daily');
 });
 
 app.listen(app.get('port'), function() {
