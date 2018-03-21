@@ -58,7 +58,7 @@ fetch('/api')
     return response.json();
   })
   .then(function(response) {
-    let data = response.map((item) => {
+    var data = response.map((item) => {
       item.likesToDislikesRatio = (item.likes / item.dislikes).toFixed(2);
       return item;
     });
