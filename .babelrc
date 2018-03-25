@@ -1,1 +1,1 @@
-{ "presets": ["es2017"] }
+{ "presets": ["@babel/preset-env", "@babel/preset-react"] }
