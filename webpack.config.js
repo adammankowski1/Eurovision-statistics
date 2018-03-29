@@ -1,6 +1,7 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const webpack = require('webpack');
 
 const config = {
@@ -23,7 +24,8 @@ const config = {
       template: path.resolve(__dirname, 'template/index.html')
     }),
     new webpack.NamedModulesPlugin(),
-    new webpack.HotModuleReplacementPlugin()
+    new webpack.HotModuleReplacementPlugin(),
+    new ExtractTextPlugin("styles.css"),
   ],
   mode: 'development',
   module: {
@@ -34,8 +36,22 @@ const config = {
         use: {
           loader: 'babel-loader'
         }
+      },
+      {
+        test: /\.css$/,
+        use: ExtractTextPlugin.extract({
+          fallback: "style-loader",
+          use: "css-loader"
+        })
+      },
+      {
+        test: /\.less$/,
+        use: ExtractTextPlugin.extract({
+          use: ['css-loader', 'less-loader'],
+          fallback: 'style-loader'
+        })
       }
-    ]
+    ],
   }
 };
 

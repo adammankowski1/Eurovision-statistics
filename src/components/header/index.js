@@ -1,17 +1,33 @@
 import React from 'react';
-import { Navbar, Nav, NavItem } from 'react-bootstrap/lib';
+import { Layout, Menu, Breadcrumb } from 'antd';
+const { Header, Content, Footer } = Layout;
 
-export default class Header extends React.Component {
+export default class SiteHeader extends React.Component {
   render() {
-    return (<Navbar>
-      <Nav>
-        <NavItem eventKey={1} href="/">
-          <span className="glyphicon glyphicon-home"></span> Live statistic
-        </NavItem>
-        <NavItem eventKey={2} href="/roster">
-          <span className="glyphicon glyphicon-user"></span> Daily statistics
-        </NavItem>
-      </Nav>
-    </Navbar>);
+    return (
+      <Header>
+        <div className="logo" />
+        <Menu
+          theme="dark"
+          mode="horizontal"
+          defaultSelectedKeys={['2']}
+          style={{ lineHeight: '64px' }}
+        >
+          <Menu.Item key="1">Live statistic</Menu.Item>
+          <Menu.Item key="2">Daily statistics</Menu.Item>
+        </Menu>
+      </Header>
+    );
   }
 }
+
+// (<Navbar>
+//   <Nav>
+//     <NavItem eventKey={1} href="/">
+//       <span className="glyphicon glyphicon-home"></span> Live statistic
+//     </NavItem>
+//     <NavItem eventKey={2} href="/roster">
+//       <span className="glyphicon glyphicon-user"></span> Daily statistics
+//     </NavItem>
+//   </Nav>
+// </Navbar>)
