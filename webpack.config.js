@@ -47,7 +47,11 @@ const config = {
       {
         test: /\.less$/,
         use: ExtractTextPlugin.extract({
-          use: ['css-loader', 'less-loader'],
+          use: [{
+            loader: 'css-loader'
+          }, {
+            loader: 'less-loader', options: { javascriptEnabled: true }
+          }],
           fallback: 'style-loader'
         })
       }

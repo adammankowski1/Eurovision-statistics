@@ -1,0 +1,77 @@
+Arguments: 
+  C:\Program Files\nodejs\node.exe C:\Users\Adam\AppData\Roaming\npm\node_modules\yarn\bin\yarn.js install
+
+PATH: 
+  C:\ProgramData\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\nodejs\;C:\Program Files\Git\cmd;C:\Users\Adam\AppData\Local\Microsoft\WindowsApps;C:\Users\Adam\AppData\Roaming\npm;C:\Program Files\Heroku\bin;C:\Program Files\Microsoft VS Code\bin
+
+Yarn version: 
+  1.5.1
+
+Node version: 
+  8.11.1
+
+Platform: 
+  win32 x64
+
+npm manifest: 
+  {
+    "name": "eurovision-odds-checker",
+    "version": "1.0.0",
+    "description": "",
+    "engines": {
+      "node": "8.9.1"
+    },
+    "private": true,
+    "scripts": {
+      "start": "node index.js",
+      "build": "webpack",
+      "start:dev": "webpack-dev-server"
+    },
+    "author": "",
+    "license": "MIT",
+    "devDependencies": {
+      "@babel/core": "^7.0.0-beta.42",
+      "@babel/preset-env": "^7.0.0-beta.42",
+      "@babel/preset-react": "^7.0.0-beta.42",
+      "babel-core": "^6.26.0",
+      "babel-loader": "^8.0.0-beta.2",
+      "babel-plugin-import": "^1.6.7",
+      "clean-webpack-plugin": "^0.1.19",
+      "ejs": "^2.5.6",
+      "express": "^4.15.2",
+      "extract-text-webpack-plugin": "^4.0.0-beta.0",
+      "html-webpack-plugin": "^3.1.0",
+      "webpack": "^4.2.0",
+      "webpack-cli": "^2.0.13",
+      "webpack-dev-server": "^3.1.1"
+    },
+    "dependencies": {
+      "antd": "^3.3.3",
+      "mongodb": "^3.0.4",
+      "react": "^16.2.0",
+      "react-dom": "^16.2.0",
+      "react-router-dom": "^4.2.2",
+      "request": "^2.83.0",
+      "request-promise-native": "^1.0.5",
+      "tape": "^4.7.0"
+    }
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
+
+Trace: 
+  Error: Found incompatible module
+      at new MessageError (C:\Users\Adam\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:186:110)
+      at Object.checkOne (C:\Users\Adam\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:62444:11)
+      at C:\Users\Adam\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:22773:75
+      at Generator.next (<anonymous>)
+      at step (C:\Users\Adam\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:98:30)
+      at C:\Users\Adam\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:116:14
+      at new Promise (<anonymous>)
+      at new F (C:\Users\Adam\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:23451:28)
+      at C:\Users\Adam\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:95:12
+      at C:\Users\Adam\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:22777:27
