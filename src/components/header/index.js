@@ -1,5 +1,6 @@
 import React from 'react';
 import { Layout, Menu, Breadcrumb } from 'antd';
+import { Link } from 'react-router-dom';
 const { Header, Content, Footer } = Layout;
 
 export default class SiteHeader extends React.Component {
@@ -10,11 +11,11 @@ export default class SiteHeader extends React.Component {
         <Menu
           theme="dark"
           mode="horizontal"
-          defaultSelectedKeys={['2']}
+          defaultSelectedKeys={['1']}
           style={{ lineHeight: '64px' }}
         >
-          <Menu.Item key="1">Live statistic</Menu.Item>
-          <Menu.Item key="2">Daily statistics</Menu.Item>
+          <Menu.Item key="1"><Link to="/">Live statistic</Link></Menu.Item>
+          <Menu.Item key="2"><Link to="/daily">Daily statistics</Link></Menu.Item>
         </Menu>
       </Header>
     );
