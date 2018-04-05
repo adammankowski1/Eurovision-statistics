@@ -4,6 +4,22 @@ import { Link } from 'react-router-dom';
 const { Header, Content, Footer } = Layout;
 
 export default class SiteHeader extends React.Component {
+  constructor(props) {
+    super(props);
+    console.log(props);
+    switch(props.location.pathname) {
+      case "/":
+        this.state = { defaultKey: "1" };
+        break;
+      case "/daily":
+        this.state = { defaultKey: "2" };
+        break;
+      default:
+       this.state = { defaultKey: "1"};
+       break;
+    }
+  }
+
   render() {
     return (
       <Header>
@@ -11,7 +27,7 @@ export default class SiteHeader extends React.Component {
         <Menu
           theme="dark"
           mode="horizontal"
-          defaultSelectedKeys={['1']}
+          defaultSelectedKeys={[this.state.defaultKey]}
           style={{ lineHeight: '64px' }}
         >
           <Menu.Item key="1"><Link to="/">Live statistic</Link></Menu.Item>

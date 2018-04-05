@@ -1,8 +1,5 @@
 import React from 'react';
-import {
-  BrowserRouter as Router,
-  Route
-} from 'react-router-dom';
+import { Route, withRouter } from 'react-router-dom';
 import SiteHeader from '../header/index';
 import DailyStatistics from '../dailyStatistics/index';
 import LiveStatistics from '../liveStatistics/index';
@@ -10,12 +7,14 @@ import { Layout, Menu, Breadcrumb } from 'antd';
 const { Content, Footer } = Layout;
 import styles from './index.css';
 
+const SiteHeaderWithRouter = withRouter(SiteHeader);
+
 export default class App extends React.Component {
   render() {
     return ( <div>
-      <Router>
+      
         <Layout className="layout" style={{height:"100vh"}}>
-          <SiteHeader />
+          <SiteHeaderWithRouter />
           <Content style={{ padding: '25px 50px' }}>
             <div style={{ background: '#fff', padding: 24, minHeight: 280 }}>
               <Route exact path="/" component={LiveStatistics} />
@@ -26,7 +25,7 @@ export default class App extends React.Component {
             Ant Design ©2016 Created by Ant UED
           </Footer>
         </Layout>
-      </Router>
+      
   </div> );
   }
 }
