@@ -10,6 +10,7 @@ export default class LiveStatistics extends React.Component {
         title: 'Country',
         dataIndex: 'country',
         key: 'country',
+        render: (text, record) => <a href={"https://www.youtube.com/watch?v=" + record.id}>{text}</a>
       }, {
         title: 'Views',
         dataIndex: 'views',
