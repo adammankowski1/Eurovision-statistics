@@ -26,8 +26,7 @@ export default class DailyStatistics extends React.Component {
         key: 'dislikes',
       }, {
         title: 'Likes to dislikes ration',
-        dataIndex: '',
-        key: '',
+        render: (text, record, index) => { return (record.likes / record.dislikes).toFixed(2); }
       }, {
         title: 'Comments',
         dataIndex: 'comments',
