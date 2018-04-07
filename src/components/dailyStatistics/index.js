@@ -14,6 +14,8 @@ export default class DailyStatistics extends React.Component {
         title: 'Views',
         dataIndex: 'views',
         key: 'views',
+        sorter: (a, b) => a.views - b.views,
+        sortOrder: 'descend'
       }, {
         title: 'Likes',
         dataIndex: 'likes',

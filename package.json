@@ -10,7 +10,8 @@
     "start": "node index.js",
     "heroku-postbuild": "npm run build",
     "build": "webpack",
-    "start:dev": "webpack-dev-server"
+    "start:dev": "webpack-dev-server",
+    "start:local": "webpack && heroku local web"
   },
   "author": "",
   "license": "MIT",
