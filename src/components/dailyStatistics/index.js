@@ -15,22 +15,25 @@ export default class DailyStatistics extends React.Component {
         dataIndex: 'views',
         key: 'views',
         sorter: (a, b) => a.views - b.views,
-        sortOrder: 'descend'
+        defaultSortOrder: 'descend'
       }, {
         title: 'Likes',
         dataIndex: 'likes',
         key: 'likes',
+        sorter: (a, b) => a.likes - b.likes,
       }, {
         title: 'Dislikes',
         dataIndex: 'dislikes',
         key: 'dislikes',
+        sorter: (a, b) => a.dislikes - b.dislikes,
       }, {
-        title: 'Likes to dislikes ration',
-        render: (text, record, index) => { return (record.likes / record.dislikes).toFixed(2); }
+        title: 'Likes to dislikes ratio',
+        render: (text, record) => { return (record.likes / record.dislikes).toFixed(2); }
       }, {
         title: 'Comments',
         dataIndex: 'comments',
         key: 'comments',
+        sorter: (a, b) => a.comments - b.comments,
     }]};
   }
 
