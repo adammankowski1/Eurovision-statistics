@@ -1,7 +1,52 @@
 import React from 'react'
+import { Table } from 'antd';
 
 export default class DailyStatistics extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      dataSource: [],
+      columns: [{
+        title: 'Country',
+        dataIndex: 'country',
+        key: 'country',
+      }, {
+        title: 'Views',
+        dataIndex: 'views',
+        key: 'views',
+      }, {
+        title: 'Likes',
+        dataIndex: 'likes',
+        key: 'likes',
+      }, {
+        title: 'Dislikes',
+        dataIndex: 'dislikes',
+        key: 'dislikes',
+      }, {
+        title: 'Likes to dislikes ration',
+        dataIndex: '',
+        key: '',
+      }, {
+        title: 'Comments',
+        dataIndex: 'comments',
+        key: 'comments',
+    }]};
+  }
+
+  componentDidMount() {
+    fetch("/api/daily")
+    .then(results => {
+      return results.json();
+    }).then(data => {
+      this.setState({dataSource: data});
+    });
+  }
+
   render() {
-    return <div>Daily Statistics</div>
+    return (
+    <div>
+      <div>Daily Statistics</div>
+      <Table dataSource={this.state.dataSource} columns={this.state.columns} />
+    </div>)
   }
 };
