@@ -4,6 +4,8 @@ npm-debug.log
 
 # Local development
 .env
+dist2
+launch.json
 *.dev
 .DS_Store
 test.js
