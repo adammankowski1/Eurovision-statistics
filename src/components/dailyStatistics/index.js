@@ -10,7 +10,7 @@ export default class DailyStatistics extends React.Component {
         title: 'Country',
         dataIndex: 'country',
         key: 'country',
-        render: (text, record) => <a href={"https://www.youtube.com/watch?v=" + record.id}>{text}</a>
+        render: (text, record, index) => <div>{index + 1 + "."} <a href={"https://www.youtube.com/watch?v=" + record.id}>{text}</a></div>
       }, {
         title: 'Views',
         dataIndex: 'views',
