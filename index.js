@@ -1,14 +1,11 @@
 var express = require('express');
+var path = require('path');
 var app = express();
 var api = require('./api.js');
 
 app.set('port', (process.env.PORT || 5000));
 
-app.use(express.static(__dirname + '/public'));
-
-// views is directory for all template files
-app.set('views', __dirname + '/views');
-app.set('view engine', 'ejs');
+app.use(express.static(__dirname + '/dist2'));
 
 app.get('/api', async function(request, response) {
   const results = await api.retrieveResults();
@@ -21,13 +18,8 @@ app.get('/api/daily', async function(request, response) {
   });
 });
 
-
-app.get('/', function(request, response) {
-  response.render('pages/index');
-});
-
-app.get('/daily', function(request, response) {
-  response.render('pages/daily');
+app.get('*', function(request, response) {
+  response.sendFile(path.join(__dirname, '/dist2/index.html'));
 });
 
 app.listen(app.get('port'), function() {
