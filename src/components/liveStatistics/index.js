@@ -51,7 +51,7 @@ export default class LiveStatistics extends React.Component {
     return (
       <div>
         <div>Live Statistics</div>
-        <Table dataSource={this.state.dataSource} columns={this.state.columns} />
+        <Table dataSource={this.state.dataSource} columns={this.state.columns} pagination={false}/>
       </div>
     )
   }
