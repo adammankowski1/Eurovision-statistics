@@ -1,4 +1,4 @@
-import React from 'React';
+import React from 'react';
 import { Table } from 'antd';
 
 export default class LiveStatistics extends React.Component {
