@@ -15,12 +15,12 @@ const config = {
   },
   output: {
     filename: 'bundle.js',
-    path: path.resolve(__dirname, 'dist2')
+    path: path.resolve(__dirname, 'dist2'),
+    publicPath: '/'
   },
   plugins: [
     new CleanWebpackPlugin(['dist2'], { verbose: true, dry: false}),
     new HtmlWebpackPlugin({
-      title: 'Hot Module Replacement',
       template: path.resolve(__dirname, 'template/index.html')
     }),
     new webpack.NamedModulesPlugin(),
