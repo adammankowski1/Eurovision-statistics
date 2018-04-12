@@ -9,6 +9,7 @@ launch.json
 *.dev
 .DS_Store
 test.js
+.vscode
 
 # Docker
 Dockerfile
