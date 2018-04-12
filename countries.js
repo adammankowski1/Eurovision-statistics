@@ -1,6 +1,5 @@
 module.exports = function countries() {
   return [
-    //Released
     {name: 'Poland', ew: 'https://eurovisionworld.com/eurovision/2018/poland', yt: 'yfUJ2eDm6ng'},
     {name: 'Estonia', ew: 'https://eurovisionworld.com/eurovision/2018/estonia', yt: '76KOUIfDry8'},
     {name: 'Finland', ew: 'https://eurovisionworld.com/eurovision/2018/finland', yt: 'y4xlvh6qW6M'},
@@ -24,7 +23,6 @@ module.exports = function countries() {
     {name: 'Azebaijan', ew: 'https://eurovisionworld.com/eurovision/2018/azerbaijan', yt: 'kWomOdDGwMM'},
     {name: 'Greece', ew: 'https://eurovisionworld.com/eurovision/2018/greece', yt: 'z6hvV9-Gi_w'},
     {name: 'Denmark', ew: 'https://eurovisionworld.com/eurovision/2018/denmark', yt: 'XeraDSzu0nw'},
-    //Not released yet
     {name: 'San Marino', ew: 'https://eurovisionworld.com/eurovision/2018/san-marino', yt: 'ZNflc1Zcw2A'},
     {name: 'Iceland', ew: 'https://eurovisionworld.com/eurovision/2018/iceland', yt: 'nloweviD_90'},
     {name: 'Montenegro', ew: 'https://eurovisionworld.com/eurovision/2018/montenegro', yt: 'qxJoxbo9lCQ'},
