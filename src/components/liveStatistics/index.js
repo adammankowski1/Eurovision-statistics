@@ -28,7 +28,7 @@ export default class LiveStatistics extends React.Component {
         key: 'dislikes',
         sorter: (a, b) => a.dislikes - b.dislikes,
       }, {
-        title: 'Likes to dislikes ration',
+        title: 'Likes to dislikes ratio',
         render: (text, record) => { return (record.likes / record.dislikes).toFixed(2); }
       }, {
         title: 'Comments',
