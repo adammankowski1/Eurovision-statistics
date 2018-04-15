@@ -4,32 +4,71 @@ var api = require('./api.js');
 var countries = require('./countries.js');
 var utils = require('./utils.js');
 
-exports.retrieveResults = async function() {
+
+const url = 'https://www.googleapis.com/youtube/v3/videos?part=statistics&id=';
+
+/*
+  Returns Youtube API Video Stats
+
+  @param {array} Array of yt video ids
+  @return {array} Array of returned body objects (JSON.parsed)
+*/
+async function getVideoStatsByIds(ids) {
+  /* 
+    Youtube api statistic max ids per request = 49.
+    We need to split it into multiple requests if we have more than 49 ids to check
+  */
+  let chunks = [];
+  for (let i = 0; i < ids.length; i += 49)
+    chunks.push(ids.slice(i, i + 49));
+
   let results = [];
+  for (const chunk of chunks) {
+    const urlWithChunk = url + chunk.toString() + `&key=${process.env.youtube_api_key}`;
+    await request(urlWithChunk, function (error, response, body) {
+      results.push(JSON.parse(body));
+    });
+  }
+  return results;
+}
 
-  let url = 'https://www.googleapis.com/youtube/v3/videos?part=statistics&id=';
-
-  const filteredCountries = countries().filter((country) => {
-    return country.yt !== '';
-  });
-
-  filteredCountries.forEach((country, index) => {
-    url += country.yt;
-    if(index != filteredCountries.length - 1) {
-      url += ',';
+/*
+  As we fetch multiple videos which matches one country we need to merge them
+  
+  @param {array} parsedResults Parsed results [{country1}, {country2} ...]
+  @return {array} Merged results
+*/
+function mergeDoubledVideos(parsedResults) {
+  let merged = [];
+  for(result of parsedResults) {
+    const foundIndex = merged.findIndex(element => {
+      return element.country == result.country;
+    });
+    if(foundIndex != -1) {
+      merged[foundIndex].views += result.views;
+      merged[foundIndex].likes += result.likes;
+      merged[foundIndex].dislikes += result.dislikes;
+      merged[foundIndex].comments += result.comments;
+    } else {
+      merged.push(result);
     }
-  });
+  }
+  return merged;
+}
 
-  url += `&key=${process.env.youtube_api_key}`;
-  await request(url, function (error, response, body) {
-    body = JSON.parse(body);
-    let currentTime = new Date();
-    currentTime.setUTCHours(currentTime.getUTCHours(), 0, 0, 0);
-    body.items.forEach((item, index) => {
-      results.push({country: filteredCountries[index].name, views: parseInt(item.statistics.viewCount), likes: parseInt(item.statistics.likeCount), dislikes: parseInt(item.statistics.dislikeCount), comments: parseInt(item.statistics.commentCount), id: item.id, time: currentTime.toISOString()});
+exports.retrieveResults = async function() {
+  const filteredCountries = countries.getFiltered();
+
+  let currentTime = new Date();
+  currentTime.setUTCHours(currentTime.getUTCHours(), 0, 0, 0);
+  const results = await getVideoStatsByIds(filteredCountries);
+  const parsedResults = results.map(chunk => {
+    return chunk.items.map((item, index) => {
+      return { country: countries.getCountryNameByVideoId(item.id), views: parseInt(item.statistics.viewCount), likes: parseInt(item.statistics.likeCount), dislikes: parseInt(item.statistics.dislikeCount), comments: parseInt(item.statistics.commentCount), id: item.id, time: currentTime.toISOString() };
     });
   });
-  return results;
+
+  return mergeDoubledVideos([].concat(...parsedResults));
 }
 
 exports.retrieveDailyStats = async function(callback) {
