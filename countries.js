@@ -43,17 +43,31 @@ const countries = [
   { name: 'Lithuania', yt: 'CvG3sdGdGUA' },
   { name: 'F.Y.R. Macedonia', yt: 'hJ8vStigz7k' }];
 
-module.exports.getFiltered = function() {
+module.exports.getFiltered = function () {
   const filteredCountries = [];
-  countries.forEach((country) => {
-    if(typeof(country.yt) === 'object') {
-      country.yt.forEach((ytMovie) => {
+  for (const country of countries) {
+    if (typeof (country.yt) === 'object') {
+      for (ytMovie in country.yt) {
+        console.log('adding multipe')
         filteredCountries.push(ytMovie);
-      })
-    } else if(typeof(country.yt) === 'string') {
+      }
+    } else if (typeof (country.yt) === 'string') {
+      console.log('adding single')
       filteredCountries.push(country.yt)
     }
-    return country.yt;
-  });
+  };
   return filteredCountries;
 };
+
+module.exports.getCountryNameByVideoId = function (id) {
+  for (const country of countries) {
+    if (typeof (country.yt) === 'object') {
+      for (ytMovie in country.yt) {
+        if (ytMovie == id)
+          return country.name;
+      }
+    } else if (typeof (country.yt) === 'string' && country.yt == id) {
+      return country.name;
+    }
+  }
+}
