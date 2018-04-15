@@ -47,27 +47,22 @@ module.exports.getFiltered = function () {
   const filteredCountries = [];
   for (const country of countries) {
     if (typeof (country.yt) === 'object') {
-      for (ytMovie in country.yt) {
-        console.log('adding multipe')
+      for (ytMovie of country.yt)
         filteredCountries.push(ytMovie);
-      }
-    } else if (typeof (country.yt) === 'string') {
-      console.log('adding single')
+    } else if (typeof (country.yt) === 'string')
       filteredCountries.push(country.yt)
-    }
-  };
+  }
   return filteredCountries;
-};
+}
 
 module.exports.getCountryNameByVideoId = function (id) {
   for (const country of countries) {
     if (typeof (country.yt) === 'object') {
-      for (ytMovie in country.yt) {
+      for (ytMovie of country.yt) {
         if (ytMovie == id)
           return country.name;
       }
-    } else if (typeof (country.yt) === 'string' && country.yt == id) {
+    } else if (typeof (country.yt) === 'string' && country.yt == id)
       return country.name;
-    }
   }
 }
