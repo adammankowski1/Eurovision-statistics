@@ -11,7 +11,9 @@
     "heroku-postbuild": "npm run build",
     "build": "webpack",
     "start:dev": "webpack-dev-server",
-    "start:local": "webpack && heroku local web"
+    "start:local": "webpack && heroku local web",
+    "dev-server": "node index.js",
+    "dev-client": "webpack-dev-server --port 3000"
   },
   "author": "",
   "license": "MIT",
@@ -34,6 +36,7 @@
   "dependencies": {
     "antd": "^3.3.3",
     "css-loader": "^0.28.11",
+    "dotenv": "^5.0.1",
     "express": "^4.16.3",
     "mongodb": "^3.0.4",
     "react": "^16.2.0",
