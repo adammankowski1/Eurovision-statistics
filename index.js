@@ -3,7 +3,7 @@ var path = require('path');
 var app = express();
 var api = require('./api.js');
 
-if (process.env.stage !== 'production')
+if (process.env.stage === 'development')
   require('dotenv').load();
 
 app.set('port', (process.env.PORT || 5000));
