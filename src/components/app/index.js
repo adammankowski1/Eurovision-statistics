@@ -13,7 +13,7 @@ export default class App extends React.Component {
   render() {
     return ( <div>
       
-        <Layout className="layout" style={{height:"100vh"}}>
+        <Layout className="layout">
           <SiteHeaderWithRouter />
           <Content style={{ padding: '25px 50px' }}>
             <div style={{ background: '#fff', padding: 24, minHeight: 280 }}>
