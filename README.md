@@ -1,23 +1,22 @@
-# node-js-getting-started
+# Eurovision-statistic
 
-A barebones Node.js app using [Express 4](http://expressjs.com/).
-
-This application supports the [Getting Started with Node on Heroku](https://devcenter.heroku.com/articles/getting-started-with-nodejs) article - check it out.
+A Node.js app using [Express 4](http://expressjs.com/), [React](https://reactjs.org/), React-Router and Redux (soon).
 
 ## Running Locally
 
-Make sure you have [Node.js](http://nodejs.org/) and the [Heroku CLI](https://cli.heroku.com/) installed.
+Make sure you have [Node.js](http://nodejs.org/) (prefered version 8.11.1) and the [Heroku CLI](https://cli.heroku.com/) installed.
+Also, create .env file. Example of this file you have in the .env.example.
 
 ```sh
-$ git clone git@github.com:heroku/node-js-getting-started.git # or clone your own fork
-$ cd node-js-getting-started
-$ npm install
-$ npm start
+$ git clone git@github.com:adammankowski1/Eurovision-statistics.git # or clone your own fork
+$ cd eurovision-statistics
+$ yarn --ignore-engines install
+$ yarn start:dev
 ```
 
-Your app should now be running on [localhost:5000](http://localhost:5000/).
+Your app should now be running on [localhost:3000](http://localhost:3000/), and the api server is running on [localhost:5000](http://localhost:5000/)
 
-## Deploying to Heroku
+## Deploying to Heroku (to be updated soon)
 
 ```
 $ heroku create
