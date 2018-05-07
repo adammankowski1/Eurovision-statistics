@@ -3,6 +3,9 @@ var path = require('path');
 var app = express();
 var api = require('./api.js');
 
+if (process.env.stage === 'development')
+  require('dotenv').load();
+
 app.set('port', (process.env.PORT || 5000));
 
 app.use(express.static(__dirname + '/dist2'));

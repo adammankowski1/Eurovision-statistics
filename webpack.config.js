@@ -11,7 +11,15 @@ const config = {
   devServer: {
     contentBase: './dist2',
     hot: true,
-    historyApiFallback: true
+    historyApiFallback: true,
+    host: 'localhost',
+    port: 3000,
+    proxy: {
+      '/api': {
+        target: 'http://localhost:5000/',
+        secure: false
+      }
+    }
   },
   output: {
     filename: 'bundle.js',
